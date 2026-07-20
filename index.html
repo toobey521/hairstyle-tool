@@ -1,408 +1,134 @@
-<!DOCTYPE html><html lang="zh-CN">
-<head><meta charset="UTF-8"><meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Toobey 发型设计助手 v3</title>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Toobey 发型设计助手 - 下载页</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}:root{--bg:#0d1117;--bg-card:#161b22;--border:#30363d;--text:#e6edf3;--text-dim:#8b949e;--accent:#3b82f6;--good:#22c55e;--bad:#ef4444;--radius:12px}
-body{background:var(--bg);color:var(--text);font-family:sans-serif}.ct{max-width:960px;margin:0 auto;padding:20px}
-hd{text-align:center;display:block;padding:28px 0}hd h1{font-size:28px;background:linear-gradient(135deg,#3b82f6,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.st{display:flex;align-items:center;gap:8px;padding:10px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;margin-bottom:12px}
-.sp{display:none;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}.sp.on{display:block}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}.f3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:8px}
-.fg{display:flex;flex-direction:column;gap:4px}.fg label{font-size:12px;color:var(--text-dim)}
-.fg input,.fg select{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px;color:var(--text);font-size:13px;outline:none}
-.grp{display:flex;gap:8px}.grp label{display:flex;align-items:center;gap:4px;padding:6px 14px;border:1px solid var(--border);border-radius:6px;cursor:pointer;font-size:13px}
-.grp label.sel{border-color:var(--accent);color:#fff;background:rgba(59,130,246,.2)}
-.grp input[type=radio]{display:none}
-.tsb{display:flex;gap:8px;margin:12px 0}.tbtn{flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text-dim);cursor:pointer;font-size:13px;text-align:center}
-.tbtn:hover{border-color:var(--accent)}.tbtn:disabled{opacity:.5}.tbtn.ok{border-color:var(--good);color:var(--good)}.tbtn.er{border-color:var(--bad);color:var(--bad)}
-.ua{background:var(--bg-card);border:2px dashed var(--border);border-radius:var(--radius);padding:40px;text-align:center;cursor:pointer;margin-bottom:16px}
-.pre{position:relative;display:inline-block;max-width:280px}.pre img{width:100%;border-radius:8px}
-.fss{display:none;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:16px}.fss.on{display:block}
-.sg{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.sb{padding:8px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text-dim);cursor:pointer;font-size:12px;text-align:center}
-.sb.sel{background:var(--accent);color:#fff}
-.bn{width:100%;padding:12px;border:none;border-radius:var(--radius);font-size:15px;font-weight:600;cursor:pointer}.bn:disabled{opacity:.4}
-.bp{background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff}.bs{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff}
-.ab{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
-.prw{display:none;margin-bottom:16px}.prw.on{display:block}.pbar{height:6px;background:var(--border);border-radius:3px;overflow:hidden}.pfl{height:100%;width:0%;background:linear-gradient(90deg,#3b82f6,#a855f7);transition:width .3s}
-.rs{display:none}.rs.on{display:block}
-.tb{display:flex;gap:4px;background:var(--bg-card);border-radius:var(--radius);padding:4px;margin-bottom:16px}
-.t2{flex:1;padding:10px;text-align:center;border:none;background:transparent;color:var(--text-dim);cursor:pointer;border-radius:8px;font-size:14px}
-.t2.sel{background:var(--accent);color:#fff}
-.tc{display:none}.tc.on{display:block}
-.ac{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;font-size:14px;line-height:1.8}
-.sg2{display:grid;grid-template-columns:1fr;gap:20px}
-.sc{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.sc-hd{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
-.sc-hd h3{font-size:15px}.sc-hd .csel{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-dim)}
-.sc-hd .csel select{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-size:12px;outline:none}
-.sc-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;padding:14px 16px}
-.sc-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:.2s;cursor:pointer}
-.sc-card:hover{transform:translateY(-2px);border-color:var(--accent)}
-.sc-card-img{width:100%;aspect-ratio:1;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--text-dim);overflow:hidden}
-.sc-card-img img{width:100%;height:100%;object-fit:cover}
-.sc-card-ft{padding:8px 10px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--text-dim)}
-.sc-card-ft .tag-done{font-size:10px;padding:2px 8px;border-radius:3px;background:var(--good);color:#fff}
-.sc-card-ft .tag-gen{font-size:10px;padding:2px 8px;border-radius:3px;background:var(--accent);color:#fff}
-.gbtn{width:100%;padding:9px;margin:0 16px 14px;border:1px solid var(--accent);border-radius:6px;background:transparent;color:var(--accent);cursor:pointer;font-size:13px;font-weight:600;width:calc(100% - 32px)}
-.gbtn:disabled{opacity:.4}
-.gen-row{display:flex;gap:10px;padding:0 16px 14px}.gen-row .gbtn{flex:1;margin:0;min-width:0;display:inline-flex;align-items:center;justify-content:center}
-.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:1000;justify-content:center;align-items:center;backdrop-filter:blur(8px)}
-.mo.on{display:flex}.mc{max-width:700px;width:92%;position:relative}
-.mc img{width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.6)}
-.mc-close{position:absolute;top:-36px;right:0;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;opacity:.7}
-.mc-info{color:var(--text-dim);font-size:13px;margin-top:10px;text-align:center}
-.spi{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:4px}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ti{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:16px;font-size:13px;color:var(--text-dim);line-height:1.6}
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:12px 24px;z-index:2000;transition:.3s;opacity:0;white-space:nowrap}
-.toast.on{opacity:1}.toast.ok{border-color:var(--good)}.toast.er{border-color:var(--bad)}
-@media(max-width:600px){.fr,.f3{grid-template-columns:1fr}.sg{grid-template-columns:repeat(3,1fr)}.sc-gallery{grid-template-columns:repeat(2,1fr)}}
-</style></head><body><div class="ct">
-
-<hd><h1>Toobey 发型设计助手 v3</h1><p style="color:var(--text-dim);font-size:14px;margin-top:8px">上传照片 + 性别/年龄 AI 分析 + 批量生成高清发型形象</p></hd>
-
-<!-- Settings -->
-<div class="st" id="stBtn" onclick="ts()"><span>API 设置</span><span style="margin-left:auto;color:var(--text-dim);font-size:12px" id="stStatus">未配置</span></div>
-<div class="sp" id="sp">
-
-<!-- Provider selector -->
-<div style="margin-bottom:12px">
-<label style="font-size:12px;color:var(--text-dim);display:block;margin-bottom:6px">选择 AI 服务商 (自动填充地址和模型)</label>
-<select id="provider" onchange="onProviderChange()" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px;color:var(--text);font-size:14px;outline:none">
-<option value="">-- 手动配置 --</option>
-<option value="deepseek">DeepSeek (deepseek-chat) — 支持视觉</option>
-<option value="openai">OpenAI (gpt-4o / gpt-4o-mini) — 支持视觉</option>
-<option value="anthropic">Anthropic (claude-sonnet-4-20250514) — 支持视觉</option>
-<option value="qwen">阿里通义千问 (qwen-vl-max / qwen2.5-vl-72b) — 支持视觉</option>
-<option value="zhipu">智谱 GLM-4V (glm-4v-plus) — 支持视觉</option>
-<option value="moonshot">月之暗面 Moonshot (moonshot-v1-8k) — 支持视觉</option>
-<option value="step">阶跃星辰 Step (step-1v-8k) — 支持视觉</option>
-<option value="agnes">Agnes (agnes-2.0-flash) — 仅图片生成</option>
-</select>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#e6edf3;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+.hero{text-align:center;padding:60px 20px 40px;background:linear-gradient(135deg,#0d1117 0%,#161b22 50%,#0d1117 100%)}
+.hero h1{font-size:36px;background:linear-gradient(135deg,#3b82f6,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.hero p{color:#8b949e;font-size:16px;max-width:600px;margin:0 auto;line-height:1.6}
+.container{max-width:900px;margin:0 auto;padding:0 20px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:30px;margin:30px 0}
+.card h2{font-size:20px;color:#3b82f6;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #30363d}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+.feature{background:#1c2333;border:1px solid #30363d;border-radius:8px;padding:16px}
+.feature .icon{font-size:24px;margin-bottom:6px}
+.feature h3{font-size:14px;margin-bottom:4px}
+.feature p{font-size:12px;color:#8b949e;line-height:1.5}
+.dl-area{text-align:center;margin:40px 0}
+.dl-btn{display:inline-block;padding:16px 48px;background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;border-radius:10px;font-size:18px;font-weight:600;text-decoration:none;cursor:pointer;transition:.2s}
+.dl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,130,246,.4)}
+.dl-btn small{display:block;font-size:12px;font-weight:400;opacity:.8;margin-top:4px}
+.sub-info{color:#8b949e;font-size:13px;margin-top:10px}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;padding:12px 16px;margin:6px 0;background:#1c2333;border:1px solid #30363d;border-radius:8px;font-size:14px}
+.steps li::before{content:counter(s);display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:#3b82f6;color:#fff;border-radius:50%;font-size:12px;font-weight:600;margin-right:10px;flex-shrink:0}
+.footer{text-align:center;padding:30px;color:#8b949e;font-size:13px;border-top:1px solid #30363d;margin-top:40px}
+.tag{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;margin:2px}
+.tag-v3{background:#1a3a1a;color:#22c55e;border:1px solid #22c55e}
+.tag-local{background:#1a1a3a;color:#3b82f6;border:1px solid #3b82f6}
+.tag-ai{background:#3a1a3a;color:#a855f7;border:1px solid #a855f7}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>✂️ Toobey 发型设计助手</h1>
+  <p>上传照片 → AI 分析脸型 → 智能推荐发型 → 批量生成高清效果图。<br>支持云端 API 和本地 ComfyUI（IP-Adapter FaceID 保留面部特征）</p>
+  <div style="margin-top:14px">
+    <span class="tag tag-v3">v3.2</span>
+    <span class="tag tag-local">ComfyUI</span>
+    <span class="tag tag-ai">AI 视觉</span>
+    <span class="tag tag-v3">FaceID</span>
+  </div>
 </div>
 
-<div class="f3">
-<div class="fg"><label>API 地址</label><input id="bu" value="https://api.deepseek.com"></div>
-<div class="fg"><label>API Key</label><input id="ak" type="password"></div>
-<div class="fg"><label>模型名</label><input id="mo" value="deepseek-chat"></div>
+<div class="container">
+  <div class="dl-area">
+    <a class="dl-btn" href="hairstyle.html" download>
+      ⬇ 下载发型助手
+      <small>hairstyle.html · 单文件 · 即下即用</small>
+    </a>
+    <p class="sub-info">📄 纯前端单 HTML 文件，双击即可运行（需配合 Python HTTP 服务或 API Key）</p>
+  </div>
+
+  <div class="card">
+    <h2>🚀 功能一览</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="icon">📸</div>
+        <h3>照片上传</h3>
+        <p>拖拽或点击上传正面人像，支持 JPG/PNG</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🧠</div>
+        <h3>AI 脸型分析</h3>
+        <p>多服务商视觉模型分析脸型，推荐匹配发型</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🎨</div>
+        <h3>批量生图</h3>
+        <p>每款发型 3/5/10 张，支持云端 API 或本地 ComfyUI</p>
+      </div>
+      <div class="feature">
+        <div class="icon">👤</div>
+        <h3>面部保留</h3>
+        <p>ComfyUI 模式下 IP-Adapter FaceID 保留面部特征</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔧</div>
+        <h3>多服务商</h3>
+        <p>DeepSeek / OpenAI / 通义 / 智谱 / Agnes / ComfyUI 一键切换</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🌙</div>
+        <h3>暗色 UI</h3>
+        <p>专业暗色主题，点击图片放大，右键保存</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📖 使用说明</h2>
+    <ol class="steps">
+      <li><strong>方式 A（云端）：</strong>下载 HTML → 双击打开 → 配置 API Key → 上传照片 → 生成</li>
+      <li><strong>方式 B（本地 ComfyUI）：</strong>需安装 ComfyUI + SDXL 模型 → 双击 <code>发型设计助手.vbs</code> 启动</li>
+      <li>选择服务商后点击「保存设置」+「测试连接」确认可用</li>
+      <li>上传正面照片 → 设置性别年龄 → 点「分析脸型 + 获取发型建议」</li>
+      <li>每款发型选数量 → 点「批量生成」→ 等待出图</li>
+      <li>点击图片放大查看，右键另存为下载</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>⚙️ 支持的服务商</h2>
+    <div class="features">
+      <div class="feature"><div class="icon">🟢</div><h3>DeepSeek</h3><p>deepseek-chat 视觉分析</p></div>
+      <div class="feature"><div class="icon">🟢</div><h3>OpenAI</h3><p>GPT-4o 视觉 + DALL-E 生图</p></div>
+      <div class="feature"><div class="icon">🟢</div><h3>Anthropic</h3><p>Claude Sonnet 4 视觉</p></div>
+      <div class="feature"><div class="icon">🟢</div><h3>通义千问</h3><p>Qwen-VL-Max 视觉</p></div>
+      <div class="feature"><div class="icon">🟢</div><h3>智谱 GLM</h3><p>GLM-4V-Plus 视觉</p></div>
+      <div class="feature"><div class="icon">🟢</div><h3>月之暗面</h3><p>Moonshot v1 视觉</p></div>
+      <div class="feature"><div class="icon">🟢</div><h3>阶跃星辰</h3><p>Step-1V 视觉</p></div>
+      <div class="feature"><div class="icon">⭐</div><h3>Agnes</h3><p>视觉分析 + 图片生成</p></div>
+      <div class="feature"><div class="icon">💻</div><h3>ComfyUI（本地）</h3><p>IP-Adapter FaceID 保留面部</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📥 其他资源</h2>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <a href="https://github.com/toobey521/hairstyle-tool" style="color:#3b82f6;font-size:14px">📂 GitHub 仓库 →</a>
+      <a href="https://toobey521.github.io/hairstyle-tool/hairstyle.html" style="color:#3b82f6;font-size:14px">🌐 在线版直接使用 →</a>
+      <span style="color:#8b949e;font-size:13px">💡 在线版需配合 API Key 使用，本地 ComfyUI 需安装模型</span>
+    </div>
+  </div>
 </div>
-<div class="fr">
-<div class="fg"><label>Max Tokens</label><input id="mt" type="number" value="4096"></div>
-<div class="fg"><label>温度</label><input id="tmp" type="number" step="0.1" value="0.3" min="0" max="2"></div>
+
+<div class="footer">
+  Toobey Network Technology Co., Ltd. · 发型设计助手 v3.2
 </div>
-<div class="tsb">
-<button class="tbtn" onclick="sv()">保存设置</button>
-<button class="tbtn" id="testBtn" onclick="testAPI()">测试连接</button>
-</div>
-<div style="font-size:11px;color:var(--text-dim);padding:6px 0" id="apiTestResult"></div>
-<div style="margin-top:8px;display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px">
-<label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;color:var(--text-dim);flex:1">
-<input type="checkbox" id="cp" onchange="sv()" style="accent-color:var(--accent)"> 跨域代理 (双击HTML时启用)
-</label>
-<input id="cpu" value="https://api.allorigins.win/raw?url=" style="flex:2;background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:4px 8px;color:var(--text-dim);font-size:11px;outline:none">
-</div>
-
-<div style="margin-top:12px;border-top:1px solid var(--border);padding-top:12px"><div style="font-size:12px;color:var(--text-dim);margin-bottom:6px">图片生成API (可选, 不配则只给建议提示词)</div>
-<div class="f3">
-<div class="fg"><label>API 地址</label><input id="iu"></div>
-<div class="fg"><label>Key(共用留空)</label><input id="ik" type="password"></div>
-<div class="fg"><label>模型</label><input id="im" value="dall-e-3"></div>
-</div>
-<div class="fr"><div class="fg"><label>尺寸</label><select id="is"><option>512x512</option><option>1024x1024</option><option>1024x1792</option><option>1792x1024</option></select></div><div></div></div>
-</div></div>
-
-<!-- Gender/Age -->
-<div style="display:flex;gap:10px;margin-bottom:12px;align-items:flex-end">
-<div style="flex:1"><label style="font-size:12px;color:var(--text-dim);display:block;margin-bottom:6px">性别</label><div class="grp" id="genderGrp">
-<label class="sel"><input type="radio" name="g" value="male" checked>👦 男</label>
-<label><input type="radio" name="g" value="female">👧 女</label></div></div>
-<div style="flex:1"><label style="font-size:12px;color:var(--text-dim);display:block;margin-bottom:6px">年龄</label><input id="age" type="number" value="30" min="1" max="120" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px;color:var(--text);font-size:13px;outline:none;box-sizing:border-box"></div>
-<div style="flex:1"><div id="profileTag" style="padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;color:var(--text-dim);text-align:center;background:var(--bg)">30岁男性</div></div></div>
-
-<!-- Upload -->
-<div class="ua" id="ua" onclick="document.getElementById('fi').click()">
-<input type="file" id="fi" accept="image/*">
-<div id="up"><p><strong>点击上传</strong> 或拖拽照片</p><p style="font-size:12px;color:var(--text-dim);margin-top:4px">建议正面免冠光线均匀</p></div>
-<div class="pre" id="pre" style="display:none"><img id="pi"><button style="position:absolute;top:-8px;right:-8px;width:24px;height:24px;border-radius:50%;background:var(--bad);color:#fff;border:none;cursor:pointer" onclick="event.stopPropagation();rm()">x</button></div></div>
-
-<!-- Face shape -->
-<div class="fss" id="fss"><div style="font-size:12px;color:var(--text-dim);margin-bottom:6px">脸型(可手动修正)</div>
-<div class="sg" id="sg">
-<div class="sb">椭圆</div><div class="sb">圆脸</div><div class="sb">方脸</div><div class="sb">心形</div><div class="sb">菱形</div>
-<div class="sb">长脸</div><div class="sb">三角</div><div class="sb">梨形</div><div class="sb">长方</div><div class="sb">倒三角</div>
-</div></div>
-
-<!-- Buttons -->
-<div class="ab"><button class="bn bp" id="abtn" onclick="an()" disabled>分析脸型 + 获取发型建议</button>
-<button class="bn bs" id="gbtn" onclick="gall()" style="display:none">生成全部新发型形象</button></div>
-
-<!-- Progress -->
-<div class="prw" id="pr"><div class="pbar"><div class="pfl" id="pfl"></div></div><div style="display:flex;justify-content:space-between;margin-top:4px;font-size:12px;color:var(--text-dim)"><span id="prL">...</span><span id="prP">0%</span></div></div>
-
-<!-- Result -->
-<div class="rs" id="rs"><div class="tb"><div class="t2 sel" onclick="sw('a',this)">发型建议</div><div class="t2" onclick="sw('s',this)">发型形象</div></div>
-<div class="tc on" id="ta"><div class="ac" id="ac"><p style="color:var(--text-dim)">点击分析按钮开始</p></div></div>
-<div class="tc" id="ts">
-<div class="ti">每款发型可选择生成数量(3/5/10张)，批量生成高清效果图。点击图片放大查看。</div>
-<div class="sg2" id="sg2"></div></div></div></div>
-
-<!-- Modal -->
-<div class="mo" id="mo" onclick="cm(event)"><div class="mc" onclick="event.stopPropagation()">
-<button class="mc-close" onclick="cm()">x</button>
-<img id="mi"><div class="mc-info" id="minfo"></div></div></div>
-<div class="toast" id="toast"></div>
-
-<script>
-// ===== Provider presets =====
-var PROVIDERS={
-  deepseek:{bu:"https://api.deepseek.com",mo:"deepseek-chat",iu:"",im:"dall-e-3",desc:"DeepSeek Chat — 支持图片理解"},
-  openai:{bu:"https://api.openai.com",mo:"gpt-4o",iu:"",im:"dall-e-3",desc:"GPT-4o — 支持图片理解"},
-  anthropic:{bu:"https://api.anthropic.com",mo:"claude-sonnet-4-20250514",iu:"",im:"dall-e-3",desc:"Claude Sonnet 4 — 支持图片理解"},
-  qwen:{bu:"https://dashscope.aliyuncs.com",mo:"qwen-vl-max",iu:"",im:"dall-e-3",desc:"通义千问VL Max — 支持图片理解"},
-  zhipu:{bu:"https://open.bigmodel.cn/api/paas/v4",mo:"glm-4v-plus",iu:"",im:"cogview-3",desc:"GLM-4V Plus — 支持图片理解"},
-  moonshot:{bu:"https://api.moonshot.cn",mo:"moonshot-v1-8k",iu:"",im:"dall-e-3",desc:"Moonshot v1 — 支持图片理解"},
-  step:{bu:"https://api.stepfun.com",mo:"step-1v-8k",iu:"",im:"dall-e-3",desc:"Step 1V — 支持图片理解"},
-  agnes:{bu:"https://apihub.agnes-ai.com/v1",mo:"agnes-2.0-flash",iu:"https://apihub.agnes-ai.com",im:"agnes-image-2.0-flash",desc:"Agnes — 支持视觉+生图"}
-};
-
-function onProviderChange(){
-  var sel=document.getElementById("provider").value;
-  if(!sel)return;
-  var p=PROVIDERS[sel];
-  if(p){
-    document.getElementById("bu").value=p.bu;
-    document.getElementById("mo").value=p.mo;
-    document.getElementById("iu").value=p.iu||p.bu;
-    document.getElementById("im").value=p.im||p.mo;
-    tt("已自动填入 "+sel,"ok");
-  }
-}
-
-// ===== Config =====
-var D={bu:"https://api.deepseek.com",ak:"cpk-AEGnP6U2NBdoJWYANCrhBw6ZuboWIWu5S9eAOdwC3E5tgA2J",mo:"deepseek-chat",mt:4096,tmp:0.3,iu:"",ik:"",im:"dall-e-3",is:"1024x1024",provider:"",cp:false,cpu:"https://api.allorigins.win/raw?url="};
-function ld(){var s=JSON.parse(localStorage.getItem("hs4")||"{}");for(var k in D){var el=document.getElementById(k);if(el)el.value=s[k]!==void 0?s[k]:D[k];}updSt();}
-function sv(){// Save & auto-fill image gen from analysis
-var ids=["bu","ak","mo","mt","tmp","iu","ik","im","is","provider"];
-// Auto-fill image gen: 地址/key/模型与分析API保持一致
-var bu=document.getElementById("bu").value;
-var ak=document.getElementById("ak").value;
-var mo=document.getElementById("mo").value;
-var iuEl=document.getElementById("iu");
-if(!iuEl.value)iuEl.value=bu;
-else{// Auto-correct image gen URL
-  var v=iuEl.value.trim();
-  if(!v.startsWith("http"))v="https://"+v;
-  v=v.replace(/\/+$/,"").replace(/\/v1.*/,"");
-  iuEl.value=v;
-}
-if(!document.getElementById("ik").value)document.getElementById("ik").value=ak;
-if(!document.getElementById("im").value)document.getElementById("im").value=mo;
-var s={};ids.forEach(function(id){s[id]=document.getElementById(id).value;});
-localStorage.setItem("hs4",JSON.stringify(s));updSt();tt("已保存","ok");}
-function gs(){var s=JSON.parse(localStorage.getItem("hs4")||"{}");for(var k in D){if(!(k in s))s[k]=D[k];}return s;}
-function updSt(){document.getElementById("stStatus").textContent=gs().ak?"已配置":"未配置";}
-function ts(){document.getElementById("sp").classList.toggle("on");}
-
-// ===== API Test =====
-async function testAPI(){
-  var btn=document.getElementById("testBtn");btn.disabled=true;btn.innerHTML="测试中...";
-  var el=document.getElementById("apiTestResult");el.innerHTML="";
-  var s=gs();if(!s.ak||!s.bu){el.innerHTML="请先填写API Key并保存";btn.disabled=false;btn.innerHTML="测试连接";return;}
-  sv();s=gs();
-  var bu=s.bu.replace(/\/+$/,"");var key=s.ak;var model=s.mo||"deepseek-chat";
-  try{
-    // Try /v1/models first
-    var url=bu+"/v1/models";
-    var r=await fetch(url,{method:"GET",headers:{"Authorization":"Bearer "+key}});
-    if(r.ok){
-      var d=await r.json();
-      var models=(d.data||[]).map(function(m){return m.id;}).join(", ")||"获取模型列表成功";
-      el.innerHTML="连接成功! 模型列表: "+models;btn.className="tbtn ok";
-    }else{
-      // Fallback: try /v1/chat/completions with minimal request
-      var url2=bu+"/v1/chat/completions";
-      if(bu.indexOf("anthropic")>=0){
-        // Anthropic uses different endpoint
-        url2=bu+"/v1/messages";
-        var r2=await fetch(url2,{method:"POST",headers:{"x-api-key":key,"Content-Type":"application/json","anthropic-version":"2023-06-01"},body:JSON.stringify({model:model,max_tokens:1,messages:[{role:"user",content:"hi"}]})});
-        if(r2.ok){el.innerHTML="连接成功! Anthropic "+model+"可用";btn.className="tbtn ok";}
-        else{var t=await r2.text().catch(function(){return"";});el.innerHTML="失败 HTTP"+r2.status+(t?": "+t.slice(0,100):"");btn.className="tbtn er";}
-      }else{
-        var r2=await fetch(url2,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+key},body:JSON.stringify({model:model,messages:[{role:"user",content:"hi"}],max_tokens:1})});
-        if(r2.ok){el.innerHTML="连接成功! "+model+"可用";btn.className="tbtn ok";}
-        else{var t2=await r2.text().catch(function(){return"";});el.innerHTML="失败 HTTP"+r2.status+(t2?": "+t2.slice(0,100):"");btn.className="tbtn er";}
-      }
-    }
-  }catch(e){el.innerHTML="连接失败:"+e.message;btn.className="tbtn er";}
-  btn.disabled=false;btn.innerHTML="测试连接";
-}
-
-// ===== Gender/Age =====
-var gbs=document.querySelectorAll("#genderGrp label");for(var i=0;i<gbs.length;i++){gbs[i].addEventListener("click",function(){document.querySelectorAll("#genderGrp label").forEach(function(l){l.classList.remove("sel");});this.classList.add("sel");updateProfile();});}
-document.getElementById("age").addEventListener("input",updateProfile);
-function getGender(){var r=document.querySelector("input[name=g]:checked");return r?r.value:"male";}
-function updateProfile(){document.getElementById("profileTag").textContent=(document.getElementById("age").value||30)+"岁"+(getGender()==="male"?"男性":"女性");}
-
-// ===== Upload =====
-var img="";var ua=document.getElementById("ua");
-ua.addEventListener("dragover",function(e){e.preventDefault();});ua.addEventListener("drop",function(e){e.preventDefault();if(e.dataTransfer.files.length)hf(e.dataTransfer.files[0]);});
-document.getElementById("fi").addEventListener("change",function(){if(this.files.length)hf(this.files[0]);});
-function hf(f){if(!f||!f.type.startsWith("image/")){tt("请上传图片","er");return;}var r=new FileReader();r.onload=function(e){img=e.target.result;document.getElementById("pi").src=img;document.getElementById("pre").style.display="inline-block";document.getElementById("up").style.display="none";document.getElementById("abtn").disabled=false;tt("已上传","ok");};r.readAsDataURL(f);}
-function rm(){img="";document.getElementById("pre").style.display="none";document.getElementById("up").style.display="block";document.getElementById("abtn").disabled=true;document.getElementById("gbtn").style.display="none";document.getElementById("rs").classList.remove("on");}
-
-// ===== Face shape =====
-var sbs=document.querySelectorAll(".sb");for(var i=0;i<sbs.length;i++){(function(i){sbs[i].addEventListener("click",function(){for(var j=0;j<sbs.length;j++)sbs[j].classList.remove("sel");this.classList.add("sel");});})(i);}
-
-// ===== Build API URL =====
-function buildChatUrl(bu){
-  if(!bu)return bu;
-  bu=bu.replace(/\/+$/,"");
-  if(bu.indexOf("anthropic")>=0)return bu+"/v1/messages";
-  if(bu.indexOf("/v1")>=0)return bu+"/chat/completions";
-  if(bu.indexOf("agnes")>=0)return bu+"/v1/chat/completions";
-  return bu+"/v1/chat/completions";
-}
-function buildModelUrl(bu){
-  bu=bu.replace(/\/+$/,"");
-  if(bu.indexOf("anthropic")>=0)return bu+"/v1/models";
-  if(bu.indexOf("/v1/")>=0)return bu+"/models";
-  return bu+"/v1/models";
-}
-
-// ===== Image compression =====
-function compressImage(dataUrl,maxW){
-  return new Promise(function(resolve){
-    var img=new Image();
-    img.onload=function(){
-      var w=img.width,h=img.height;
-      if(w<=maxW&&h<=maxW){resolve(null);return;}
-      var ratio=Math.min(maxW/w,maxW/h);
-      var c=document.createElement("canvas");
-      c.width=w*ratio;c.height=h*ratio;
-      var ctx=c.getContext("2d");
-      ctx.drawImage(img,0,0,c.width,c.height);
-      resolve(c.toDataURL("image/jpeg",0.85));
-    };
-    img.onerror=function(){resolve(null);};
-    img.src=dataUrl;
-  });
-}
-
-// ===== Analyze =====
-async function an(){
-if(!img){tt("请先上传照片","er");return;}var s=gs();if(!s.ak){tt("请填写API Key","er");return;}
-if(location.protocol==='file:'){tt("请双击本文件夹内的「发型设计助手.vbs」，会自动打开本页面","er");return;}
-sv();s=gs();
-var g=getGender(),a=document.getElementById("age").value||30,gl=g==="male"?"男性":"女性";
-var bu=s.bu.replace(/\/+$/,"");var key=s.ak;var model=s.mo||"deepseek-chat";
-// DeepSeek default模型不支持视觉，自动换用能理解图片的
-if(model==="deepseek-chat"&&bu.indexOf("deepseek")>=0)model="deepseek-vision";
-var url=buildChatUrl(bu);
-if(!url){tt("不支持分析","er");return;}
-var sp="你是发型顾问。用户:性别="+gl+",年龄="+a+"。分析脸型,根据性别年龄脸型推荐4-6种发型。格式:【发型N:名称】-适合原因-英文提示词:close-up portrait of ...请用中文。";
-prg("分析中",20);
-try{
-  // Compress image: resize to max 1024px
-  var imgData=img;
-  var compressed=await compressImage(imgData,1024);
-  if(compressed)imgData=compressed;
-  var body={model:model,max_tokens:parseInt(s.mt)||4096,temperature:parseFloat(s.tmp)||0.3};
-  var headers={"Content-Type":"application/json"};
-  if(bu.indexOf("anthropic")>=0){
-    headers["x-api-key"]=key;headers["anthropic-version"]="2023-06-01";
-    body.max_tokens=parseInt(s.mt)||4096;
-    body.messages=[{role:"user",content:[{type:"text",text:"分析照片给出发型建议"},{type:"image",source:{type:"base64",media_type:"image/jpeg",data:imgData.split(",")[1]||imgData}}]}];
-    body.system=sp;
-  }else{
-    headers["Authorization"]="Bearer "+key;
-    body.messages=[{role:"system",content:sp},{role:"user",content:[{type:"text",text:"分析照片给出发型建议"},{type:"image_url",image_url:{url:imgData}}]}];
-  }
-  var r=await fetch(url,{method:"POST",headers:headers,body:JSON.stringify(body)});
-  if(!r.ok){var e=await r.text().catch(function(){return"";});throw new Error("API错"+r.status+": "+e.slice(0,100));}
-  var d=await r.json();
-  var c="";
-  if(d.content){c=d.content[0]?.text||"";}
-  else{c=d.choices?.[0]?.message?.content||"";}
-  prg("完成",100);
-  document.getElementById("ac").innerHTML="<p style=\"font-size:13px;color:var(--text-dim);margin-bottom:8px\">"+gl+" | "+a+"岁</p>"+c.replace(/\n/g,"<br>");document.getElementById("rs").classList.add("on");
-  var sec=c.split("【");var st=[];for(var i=0;i<sec.length;i++){var x=sec[i];if(x.indexOf("】")<0)continue;var tm=x.match(/(发型\d*[：:]\s*[^】]+)/);var pm=x.match(/英文提示词[：:]\s*([^\n]+)/);if(tm)st.push({n:tm[1].replace(/发型\d*[：:]\s*/,""),p:pm?pm[1]:""});}
-  window.sp=st;renderGallery();document.getElementById("gbtn").style.display=s.iu?"block":"none";prg("",0);tt("完成","ok");
-}catch(e){prg("",0);tt("失败:"+e.message,"er");console.error(e);}}
-
-// ===== Render Gallery =====
-function renderGallery(){
-var g=document.getElementById("sg2");var st=window.sp;if(!st||!st.length){g.innerHTML="";return;}
-g.innerHTML="";
-for(var i=0;i<st.length;i++){
-var s=st[i];
-var html='<div class="sc"><div class="sc-hd"><h3>'+s.n+'</h3><div class="csel">每款: <select id="cnt'+i+'"><option value="3">3张</option><option value="5" selected>5张</option><option value="10">10张</option></select></div></div>';
-html+='<div class="sc-gallery" id="gal'+i+'">';
-for(var j=0;j<3;j++){var cid=i+'_'+j;html+='<div class="sc-card" onclick="viewImg(\''+cid+'\')" id="card'+cid+'"><div class="sc-card-img" id="sg'+cid+'"><span>点击批量生成</span></div><div class="sc-card-ft"><span>样式'+(j+1)+'</span></div></div>';}
-html+='</div><div class="gen-row"><button class="gbtn" id="gb'+i+'" onclick="batchGen('+i+')">批量生成</button></div></div>';
-g.innerHTML+=html;}}
-
-// ===== Batch Generate =====
-async function batchGen(idx){
-var btn=document.getElementById("gb"+idx);if(!btn)return;var st=window.sp;if(!st||!st[idx])return;
-var cnt=parseInt(document.getElementById("cnt"+idx).value);btn.disabled=true;btn.innerHTML='批量生成 '+cnt+' 张...';
-var s=gs();if(!s.iu){tt("未配置图片API","er");btn.disabled=false;btn.innerHTML="批量生成";return;}
-var pmt=st[idx].p||"professional hairstyle portrait of "+(getGender()==="male"?"a man":"a woman")+" with "+st[idx].n+", highly detailed hair texture, professional salon photography, soft studio lighting, 8K quality, photorealistic, sharp focus";
-// ComfyUI 本地生成走桥接服务
-if(s.provider==='comfy'){
-  var gal=document.getElementById("gal"+idx);gal.innerHTML="";
-  for(var j=0;j<cnt;j++){var cid=idx+'_'+j;gal.innerHTML+='<div class="sc-card" onclick="viewImg(\''+cid+'\')" id="card'+cid+'"><div class="sc-card-img" id="sg'+cid+'"><span class="spi"></span></div><div class="sc-card-ft"><span>生成'+(j+1)+'/'+cnt+'</span></div></div>';}
-  for(var j=0;j<cnt;j++){btn.innerHTML='生成 '+(j+1)+'/'+cnt+'...';await genLocal(idx,j,pmt);}
-  btn.innerHTML='已生成 '+cnt+' 张';btn.disabled=true;tt(st[idx].n+" "+cnt+"张完成","ok");return;
-}
-var bu=s.iu.replace(/\/+$/,"");var key=s.ik||s.ak;var eps=[bu+"/v1/images/generations",bu+"/sdapi/v1/txt2img"];
-var gal=document.getElementById("gal"+idx);gal.innerHTML="";
-for(var j=0;j<cnt;j++){var cid=idx+'_'+j;gal.innerHTML+='<div class="sc-card" onclick="viewImg(\''+cid+'\')" id="card'+cid+'"><div class="sc-card-img" id="sg'+cid+'"><span class="spi"></span></div><div class="sc-card-ft"><span>生成'+(j+1)+'/'+cnt+'</span></div></div>';}
-for(var j=0;j<cnt;j++){
-btn.innerHTML='生成 '+(j+1)+'/'+cnt+'...';
-try{var res=null,err=null;
-for(var ei=0;ei<eps.length;ei++){try{var body;var h={"Content-Type":"application/json"};if(eps[ei].indexOf("sdapi")>=0){body={prompt:pmt,negative_prompt:"ugly,blurry,deformed,bad anatomy",steps:30,width:768,height:768,cfg_scale:7};}else{body={model:s.im,prompt:pmt,n:1,size:s.is||"1024x1024"};}if(key)h["Authorization"]="Bearer "+key;var r2=await fetch(eps[ei],{method:"POST",headers:h,body:JSON.stringify(body)});if(!r2.ok){var errBody=await r2.text().catch(function(){return"";});err="HTTP"+r2.status+":"+errBody.slice(0,80);continue;}var da=await r2.json();var u="";if(da.data?.[0]?.url)u=da.data[0].url;else if(da.data?.[0]?.b64_json)u="data:image/png;base64,"+da.data[0].b64_json;else if(da.images?.[0])u="data:image/png;base64,"+da.images[0];if(u){res=u;break;}err="no url: API返回无图片";}catch(e2){err=e2.message;continue;}}
-if(res){document.getElementById("sg"+idx+"_"+j).innerHTML='<img src="'+res+'" onerror="this.parentElement.innerHTML=\'<span>图片加载失败,可右键复制链接下载</span>\'"><div style="font-size:10px;padding:4px;color:var(--text-dim);text-align:center">点击放大 · 右键保存</div>';document.getElementById("card"+idx+"_"+j).querySelector(".sc-card-ft").innerHTML='<span>完成</span><span class="tag-done">完成</span>';}
-else{var em=err||"失败";document.getElementById("sg"+idx+"_"+j).innerHTML="<span style='font-size:11px;padding:4px;word-break:break-all'>"+em+"</span>";document.getElementById("sg"+idx+"_"+j).innerHTML+="<div style='font-size:10px;color:var(--accent);cursor:pointer;padding:4px' onclick='event.stopPropagation();manualGen("+JSON.stringify(eps[0])+","+JSON.stringify({model:s.im,prompt:pmt,n:1,size:s.is||"1024x1024"})+")'>点击手动重试</div>";tt(em,"er");}}
-catch(e){document.getElementById("sg"+idx+"_"+j).innerHTML="<span>失败</span>";document.getElementById("sg"+idx+"_"+j).innerHTML+="<div style='font-size:10px;color:var(--accent);cursor:pointer;padding:4px' onclick='event.stopPropagation();retryOne("+idx+","+j+")'>点击重试</div>";}}
-}
-btn.innerHTML='已生成 '+cnt+' 张';btn.disabled=true;tt(st[idx].n+" "+cnt+"张完成","ok");
-
-// 手动生成：显示curl命令
-function manualGen(url,body){
-  var key=gs().ik||gs().ak;
-  var curl="curl -X POST \""+url+"\" \n  -H \"Content-Type: application/json\" \n  -H \"Authorization: Bearer "+key+"\" \n  -d '"+JSON.stringify(body)+"'";
-  showModal("手动生成","","复制以下命令在终端执行:\n\n"+curl+"\n\n或在浏览器地址栏粘贴:\n"+url+"\n(打开F12控制台→Network→查看响应)");
-}
-
-// 重试单张图片生成
-function retryOne(idx,j){
-  var el=document.getElementById("sg"+idx+"_"+j);
-  if(!el)return;
-  el.innerHTML='<span class="spi"></span>';
-  genOne(idx,j);
-}
-async function genOne(idx,j){
-  var st=window.sp;if(!st||!st[idx])return;
-  var s=gs();if(!s.iu){tt("未配置图片API","er");return;}
-  var pmt=st[idx].p||"professional hairstyle portrait of "+(getGender()==="male"?"a man":"a woman")+" with "+st[idx].n+", highly detailed hair texture, professional salon photography, soft studio lighting, 8K quality, photorealistic, sharp focus";
-  var bu=s.iu.replace(/\/+$/,"");var key=s.ik||s.ak;var eps=[bu+"/v1/images/generations",bu+"/sdapi/v1/txt2img"];
-  try{var res=null,err=null;
-  for(var ei=0;ei<eps.length;ei++){try{var body;var h={"Content-Type":"application/json"};if(eps[ei].indexOf("sdapi")>=0){body={prompt:pmt,negative_prompt:"ugly,blurry,deformed,bad anatomy",steps:30,width:768,height:768,cfg_scale:7};}else{body={model:s.im,prompt:pmt,n:1,size:s.is||"1024x1024"};}if(key)h["Authorization"]="Bearer "+key;var r2=await fetch(eps[ei],{method:"POST",headers:h,body:JSON.stringify(body)});if(!r2.ok){var errBody=await r2.text().catch(function(){return"";});err="HTTP"+r2.status+":"+errBody.slice(0,80);continue;}var da=await r2.json();var u="";if(da.data?.[0]?.url)u=da.data[0].url;else if(da.data?.[0]?.b64_json)u="data:image/png;base64,"+da.data[0].b64_json;else if(da.images?.[0])u="data:image/png;base64,"+da.images[0];if(u){res=u;break;}err="no url: API返回无图片";}catch(e2){err=e2.message;continue;}}
-  if(res){document.getElementById("sg"+idx+"_"+j).innerHTML='<img src="'+res+'" onerror="this.parentElement.innerHTML=\'<span>图片加载失败,可右键复制链接下载</span>\'"><div style="font-size:10px;padding:4px;color:var(--text-dim);text-align:center">点击放大 · 右键保存</div>';document.getElementById("card"+idx+"_"+j).querySelector(".sc-card-ft").innerHTML='<span>完成</span><span class="tag-done">完成</span>';tt("第"+(j+1)+"张成功","ok");}
-  else{document.getElementById("sg"+idx+"_"+j).innerHTML="<span>"+(err||"失败")+"</span>";tt(err||"失败","er");}
-  }catch(e){document.getElementById("sg"+idx+"_"+j).innerHTML="<span>失败</span>";}}
-
-async function gall(){if(!window.sp||!window.sp.length){tt("先分析","er");return;}var s=gs();if(!s.iu){tt("未配置图片API","er");return;}for(var i=0;i<window.sp.length;i++)await batchGen(i);tt("全部完成","ok");}
-
-function viewImg(key){
-var p=key.split("_");var idx=parseInt(p[0]),j=parseInt(p[1]);
-var el=document.getElementById("sg"+key);if(!el)return;var im=el.querySelector("img");if(im&&im.src){document.getElementById("mo").classList.add("on");document.getElementById("mi").src=im.src;document.getElementById("minfo").textContent=(window.sp?.[idx]?.n||"发型")+" 样式"+(j+1);}else{tt("请先生成图片","er");}}
-
-function cm(e){if(e&&e.target!==e.currentTarget)return;document.getElementById("mo").classList.remove("on");}
-function sw(t,el){document.querySelectorAll(".t2").forEach(function(x){x.classList.remove("sel");});document.querySelectorAll(".tc").forEach(function(x){x.classList.remove("on");});el.classList.add("sel");document.getElementById("t"+t).classList.add("on");}
-function prg(l,p){var w=document.getElementById("pr");if(p>0){w.classList.add("on");document.getElementById("pfl").style.width=p+"%";document.getElementById("prL").textContent=l;document.getElementById("prP").textContent=p+"%"}else{w.classList.remove("on");}}
-var tt_;function tt(m,t){var o=document.getElementById("toast");o.textContent=m;o.className="toast "+(t||"");clearTimeout(tt_);void o.offsetWidth;o.classList.add("on");tt_=setTimeout(function(){o.classList.remove("on");},3000);}
-
-// ===== Init =====
-ld();updateProfile();
-</script></body></html>
+</body>
+</html>
