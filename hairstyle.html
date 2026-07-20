@@ -362,16 +362,14 @@ btn.innerHTML='生成 '+(j+1)+'/'+cnt+'...';
 try{var res=null,err=null;
 for(var ei=0;ei<eps.length;ei++){try{var body;var h={"Content-Type":"application/json"};if(eps[ei].indexOf("sdapi")>=0){body={prompt:pmt,negative_prompt:"ugly,blurry,deformed,bad anatomy",steps:30,width:768,height:768,cfg_scale:7};}else{body={model:s.im,prompt:pmt,n:1,size:s.is||"1024x1024"};}if(key)h["Authorization"]="Bearer "+key;var r2=await fetch(eps[ei],{method:"POST",headers:h,body:JSON.stringify(body)});if(!r2.ok){var errBody=await r2.text().catch(function(){return"";});err="HTTP"+r2.status+":"+errBody.slice(0,80);continue;}var da=await r2.json();var u="";if(da.data?.[0]?.url)u=da.data[0].url;else if(da.data?.[0]?.b64_json)u="data:image/png;base64,"+da.data[0].b64_json;else if(da.images?.[0])u="data:image/png;base64,"+da.images[0];if(u){res=u;break;}err="no url: API返回无图片";}catch(e2){err=e2.message;continue;}}
 if(res){document.getElementById("sg"+idx+"_"+j).innerHTML='<img src="'+res+'" onerror="this.parentElement.innerHTML=\'<span>图片加载失败,可右键复制链接下载</span>\'"><div style="font-size:10px;padding:4px;color:var(--text-dim);text-align:center">点击放大 · 右键保存</div>';document.getElementById("card"+idx+"_"+j).querySelector(".sc-card-ft").innerHTML='<span>完成</span><span class="tag-done">完成</span>';}
-else{var em=err||"失败";document.getElementById("sg"+idx+"_"+j).innerHTML="<span style='font-size:11px;padding:4px;word-break:break-all'>"+em+"</span>";document.getElementById("sg"+idx+"_"+j).innerHTML+="<div style='font-size:10px;color:var(--accent);cursor:pointer;padding:4px' onclick='event.stopPropagation();manualGen("+JSON.stringify(eps[0])+","+JSON.stringify({model:s.im,prompt:pmt,n:1,size:s.is||"1024x1024"})+")'>点击手动重试</div>";tt(em,"er");}}
+else{var em=err||"失败";document.getElementById("sg"+idx+"_"+j).innerHTML="<span style='font-size:11px;padding:4px;word-break:break-all'>"+em+"</span>";document.getElementById("sg"+idx+"_"+j).innerHTML+="<div style='font-size:10px;color:var(--accent);cursor:pointer;padding:4px' onclick='event.stopPropagation();retryOne("+idx+","+j+")'>重试</div>";tt(em,"er");}}
 catch(e){document.getElementById("sg"+idx+"_"+j).innerHTML="<span>失败</span>";document.getElementById("sg"+idx+"_"+j).innerHTML+="<div style='font-size:10px;color:var(--accent);cursor:pointer;padding:4px' onclick='event.stopPropagation();retryOne("+idx+","+j+")'>点击重试</div>";}}
 }
 btn.innerHTML='已生成 '+cnt+' 张';btn.disabled=true;tt(st[idx].n+" "+cnt+"张完成","ok");
 
-// 手动生成：显示curl命令
-function manualGen(url,body){
-  var key=gs().ik||gs().ak;
-  var curl="curl -X POST \""+url+"\" \n  -H \"Content-Type: application/json\" \n  -H \"Authorization: Bearer "+key+"\" \n  -d '"+JSON.stringify(body)+"'";
-  showModal("手动生成","","复制以下命令在终端执行:\n\n"+curl+"\n\n或在浏览器地址栏粘贴:\n"+url+"\n(打开F12控制台→Network→查看响应)");
+// 手动重试
+function manualGen(idx,j){
+  retryOne(idx,j);
 }
 
 // 重试单张图片生成
